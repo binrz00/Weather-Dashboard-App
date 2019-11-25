@@ -1,0 +1,13 @@
+.navbar{
+    justify-content: center;
+}
+.five-day-box{
+background-color: blue;
+margin: 0px 10px;
+}
+.city-data{
+    border: solid 1px rgb(168, 165, 165);
+}
+.search-area{
+    background-color: rgba(236, 228, 228, 0.918);
+}
