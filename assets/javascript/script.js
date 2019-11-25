@@ -1,20 +1,27 @@
 //set up weather api url
-/*const city = "forest lake"//user input
+document.getElementById("citySearch").addEventListener("click",function(){
+weather();
+})
+function weather(){
+const city = document.getElementById("search").value; //user input
 const url = "https://api.openweathermap.org/data/2.5/weather?q="+ city +"&units=imperial&appid=82e0e6ab873a6ac39caada2c8b0fafd5"
 // axios get weather
 axios.get(url).then(function(response){
     console.log(response);
 //json parse the data requested
-//display under current weather conditions (maybe need moment)
+//display under current weather conditions
 //* City
+
 const town = response.data.name;
 console.log("town:" +town);
 //* Date
 let myDate = new Date(response.data.dt*1000);
 console.log("date: "+myDate);
 //* Icon image (visual representation of weather conditions)
-const icon = response.data.weather.icon;
-console.log("icon:"+icon);
+const icon = response.data.weather[0].icon;
+const iconImage = "http://openweathermap.org/img/wn/"+icon+".png";
+console.log(iconImage);
+
 //* Temperature
 const temp = response.data.main.temp;
 console.log("temp:"+temp);
@@ -40,4 +47,5 @@ axios.get(uvIndexurl).then(function(responseUv){
 //* Icon image (visual representation of weather conditions)
 //* Temperature
   //Humidity
-})*/
+})
+}
