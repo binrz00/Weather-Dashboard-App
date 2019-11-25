@@ -2,10 +2,13 @@
     justify-content: center;
 }
 .five-day-box{
+color: white;
 background-color: blue;
-margin: 0px 10px;
+margin: 0px 12px;
 }
 .city-data{
+    margin: 0px 0px 0px 10px;
+    padding: 0 1px;
     border: solid 1px rgb(168, 165, 165);
 }
 .search-area{
