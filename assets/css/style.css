@@ -4,7 +4,8 @@
 .five-day-box{
 color: white;
 background-color: blue;
-margin: 0px 12px;
+padding: 0px 12px;
+margin: 0px 10px;
 }
 .city-data{
     margin: 0px 0px 0px 10px;
