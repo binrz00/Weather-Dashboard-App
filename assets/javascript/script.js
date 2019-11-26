@@ -9,13 +9,12 @@ function weather() {
 
     const icon = response.data.weather[0].icon;
     document.getElementById("icon").setAttribute("src", "http://openweathermap.org/img/wn/" + icon + ".png")
-    console.log(document.getElementById("icon"));
     let theDate = new Date(response.data.dt * 1000).toLocaleDateString().split(",")[0];
     const town = response.data.name;
     document.getElementById("city").innerHTML = town + " (" + theDate + ")";
 
     const temp = response.data.main.temp;
-    document.getElementById("temp").innerHTML = "Temperature: " + temp + "F";
+    document.getElementById("temp").innerHTML = "Temperature: " + temp + "℉";
     const humidity = response.data.main.humidity;
     document.getElementById("humidity").innerHTML = "humidity: " + humidity + "%";
     const windSpeed = response.data.wind.speed;
@@ -33,7 +32,7 @@ function weather() {
         const icon1 = responseFive.data.list[2].weather[0].icon;
         document.getElementById("icon1").setAttribute("src", "http://openweathermap.org/img/wn/" + icon1 + ".png");
         const temp1 = responseFive.data.list[2].main.temp;
-        document.getElementById("temp1").innerHTML = "Temp: " + temp1 + "F";
+        document.getElementById("temp1").innerHTML = "Temp: " + temp1 + "℉";
         const humidity1 = responseFive.data.list[2].main.humidity;
         document.getElementById("humid1").innerHTML = "Humidity: " + humidity1 + "%";
 
@@ -42,7 +41,7 @@ function weather() {
         const icon2 = responseFive.data.list[10].weather[0].icon;
         document.getElementById("icon2").setAttribute("src", "http://openweathermap.org/img/wn/" + icon2 + ".png");
         const temp2 = responseFive.data.list[10].main.temp;
-        document.getElementById("temp2").innerHTML = "Temp: " + temp2 + "F";
+        document.getElementById("temp2").innerHTML = "Temp: " + temp2 + "℉";
         const humidity2 = responseFive.data.list[10].main.humidity;
         document.getElementById("humid2").innerHTML = "Humidity: " + humidity2 + "%";
 
@@ -51,7 +50,7 @@ function weather() {
         const icon3 = responseFive.data.list[18].weather[0].icon;
         document.getElementById("icon3").setAttribute("src", "http://openweathermap.org/img/wn/" + icon3 + ".png");
         const temp3 = responseFive.data.list[18].main.temp;
-        document.getElementById("temp3").innerHTML = "Temp: " + temp3 + "F";
+        document.getElementById("temp3").innerHTML = "Temp: " + temp3 + "℉";
         const humidity3 = responseFive.data.list[18].main.humidity;
         document.getElementById("humid3").innerHTML = "Humidity: " + humidity3 + "%";
 
@@ -60,7 +59,7 @@ function weather() {
         const icon4 = responseFive.data.list[26].weather[0].icon;
         document.getElementById("icon4").setAttribute("src", "http://openweathermap.org/img/wn/" + icon4 + ".png");
         const temp4 = responseFive.data.list[26].main.temp;
-        document.getElementById("temp4").innerHTML = "Temp: " + temp4 + "F";
+        document.getElementById("temp4").innerHTML = "Temp: " + temp4 + "℉";
         const humidity4 = responseFive.data.list[26].main.humidity;
         document.getElementById("humid4").innerHTML = "Humidity: " + humidity4 + "%";
 
@@ -69,7 +68,7 @@ function weather() {
         const icon5 = responseFive.data.list[34].weather[0].icon;
         document.getElementById("icon5").setAttribute("src", "http://openweathermap.org/img/wn/" + icon5 + ".png");
         const temp5 = responseFive.data.list[34].main.temp;
-        document.getElementById("temp5").innerHTML = "Temp: " + temp5 + "F";
+        document.getElementById("temp5").innerHTML = "Temp: " + temp5 + "℉";
         const humidity5 = responseFive.data.list[34].main.humidity;
         document.getElementById("humid5").innerHTML = "Humidity: " + humidity5 + "%";
 
