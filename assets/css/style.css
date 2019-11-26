@@ -13,5 +13,12 @@ margin: 0px 10px;
     border: solid 1px rgb(168, 165, 165);
 }
 .search-area{
-    background-color: rgba(236, 228, 228, 0.918);
+    background-color: rgb(247, 242, 242);
+}
+.cities{
+    background-color: white;
+    border: solid 1px rgb(168, 165, 165);
+    margin: 1px 0px 0px 0px;
+    cursor: pointer;
+    
 }

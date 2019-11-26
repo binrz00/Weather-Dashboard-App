@@ -89,15 +89,27 @@ function weather(city) {
 //inputs[i].innerText = "";
 //inputs[i].innerText = JSON.parse(localStorage.getItem("button" + i) || "[]");
 function createButton(city) {
-  const cityHolder = document.createElement("div");
-  const button = document.createElement("button");
-  button.setAttribute("class", "btn btn-outline-secondary");
+  const button = document.createElement("div");
+  button.classList.add("cities");
+  button.classList.add("rounded-sm");
   button.innerHTML = city;
   button.addEventListener("click", function () {
     let city = button.innerHTML;
     weather(city);
     document.getElementById("search").value = "";
   })
-  cityHolder.append(button);
-  document.getElementById("cities").append(cityHolder);
+  document.getElementById("cities").append(button);
 }
+/*storedCities(button){
+  document.querySelectorAll(".cities").setAttribute("class","d-none");
+  const prevData = localStorage.getItem("buttons") || "[]";
+  const data = JSON.parse(prevData);
+  
+  if(data.length>4){
+    data.shift();
+  }
+  data.push("buttons");*/
+
+    
+
+
