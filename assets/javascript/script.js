@@ -1,15 +1,18 @@
 
 document.getElementById("citySearch").addEventListener("click", function () {
-  weather();
+  let city = document.getElementById("search").value;
+
+  createButton(city);
+  weather(city);
+  document.getElementById("search").value = "";
 })
-function weather() {
-  const city = document.getElementById("search").value;
+function weather(city) {
   const url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=82e0e6ab873a6ac39caada2c8b0fafd5"
   axios.get(url).then(function (response) {
 
     const icon = response.data.weather[0].icon;
     document.getElementById("icon").setAttribute("src", "http://openweathermap.org/img/wn/" + icon + ".png")
-    let theDate = new Date(response.data.dt * 1000).toLocaleDateString().split(",")[0];
+    const theDate = new Date(response.data.dt * 1000).toLocaleDateString().split(",")[0];
     const town = response.data.name;
     document.getElementById("city").innerHTML = town + " (" + theDate + ")";
 
@@ -27,7 +30,7 @@ function weather() {
       const fiveDayUrl = "https://api.openweathermap.org/data/2.5/forecast?appid=82e0e6ab873a6ac39caada2c8b0fafd5&lat=" + lat + "&lon=" + lon + "&units=imperial&";
       axios.get(fiveDayUrl).then(function (responseFive) {
 
-        let date1 = new Date(responseFive.data.list[2].dt * 1000).toLocaleDateString().split(",")[0];
+        const date1 = new Date(responseFive.data.list[2].dt * 1000).toLocaleDateString().split(",")[0];
         document.getElementById("date1").innerHTML = date1
         const icon1 = responseFive.data.list[2].weather[0].icon;
         document.getElementById("icon1").setAttribute("src", "http://openweathermap.org/img/wn/" + icon1 + ".png");
@@ -36,7 +39,7 @@ function weather() {
         const humidity1 = responseFive.data.list[2].main.humidity;
         document.getElementById("humid1").innerHTML = "Humidity: " + humidity1 + "%";
 
-        let date2 = new Date(responseFive.data.list[10].dt * 1000).toLocaleDateString().split(",")[0];
+        const date2 = new Date(responseFive.data.list[10].dt * 1000).toLocaleDateString().split(",")[0];
         document.getElementById("date2").innerHTML = date2
         const icon2 = responseFive.data.list[10].weather[0].icon;
         document.getElementById("icon2").setAttribute("src", "http://openweathermap.org/img/wn/" + icon2 + ".png");
@@ -45,7 +48,7 @@ function weather() {
         const humidity2 = responseFive.data.list[10].main.humidity;
         document.getElementById("humid2").innerHTML = "Humidity: " + humidity2 + "%";
 
-        let date3 = new Date(responseFive.data.list[18].dt * 1000).toLocaleDateString().split(",")[0];
+        const date3 = new Date(responseFive.data.list[18].dt * 1000).toLocaleDateString().split(",")[0];
         document.getElementById("date3").innerHTML = date3
         const icon3 = responseFive.data.list[18].weather[0].icon;
         document.getElementById("icon3").setAttribute("src", "http://openweathermap.org/img/wn/" + icon3 + ".png");
@@ -54,7 +57,7 @@ function weather() {
         const humidity3 = responseFive.data.list[18].main.humidity;
         document.getElementById("humid3").innerHTML = "Humidity: " + humidity3 + "%";
 
-        let date4 = new Date(responseFive.data.list[26].dt * 1000).toLocaleDateString().split(",")[0];
+        const date4 = new Date(responseFive.data.list[26].dt * 1000).toLocaleDateString().split(",")[0];
         document.getElementById("date4").innerHTML = date4
         const icon4 = responseFive.data.list[26].weather[0].icon;
         document.getElementById("icon4").setAttribute("src", "http://openweathermap.org/img/wn/" + icon4 + ".png");
@@ -63,7 +66,7 @@ function weather() {
         const humidity4 = responseFive.data.list[26].main.humidity;
         document.getElementById("humid4").innerHTML = "Humidity: " + humidity4 + "%";
 
-        let date5 = new Date(responseFive.data.list[34].dt * 1000).toLocaleDateString().split(",")[0];
+        const date5 = new Date(responseFive.data.list[34].dt * 1000).toLocaleDateString().split(",")[0];
         document.getElementById("date5").innerHTML = date5
         const icon5 = responseFive.data.list[34].weather[0].icon;
         document.getElementById("icon5").setAttribute("src", "http://openweathermap.org/img/wn/" + icon5 + ".png");
@@ -75,12 +78,26 @@ function weather() {
 
       })
     })
-    //search history with city name (local storage)
-    // clicking on the city name gets current and future data 
-    //5 day forcast under current weather with:
-    //* Date
-    //* Icon image (visual representation of weather conditions)
-    //* Temperature
-    //Humidity
   })
+}
+//const inputEl = inputs[i].value;
+//const prevData = localStorage.getItem("button" + i) || "[]";
+//const data = JSON.parse(prevData);
+//data.push(city);
+//localStorage.setItem("button" + i, JSON.stringify(data));
+
+//inputs[i].innerText = "";
+//inputs[i].innerText = JSON.parse(localStorage.getItem("button" + i) || "[]");
+function createButton(city) {
+  const cityHolder = document.createElement("div");
+  const button = document.createElement("button");
+  button.setAttribute("class", "btn btn-outline-secondary");
+  button.innerHTML = city;
+  button.addEventListener("click", function () {
+    let city = button.innerHTML;
+    weather(city);
+    document.getElementById("search").value = "";
+  })
+  cityHolder.append(button);
+  document.getElementById("cities").append(cityHolder);
 }
