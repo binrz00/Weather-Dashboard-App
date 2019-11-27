@@ -1,4 +1,4 @@
-let data = JSON.parse(localStorage.getItem("key"));
+let data = JSON.parse(localStorage.getItem("key")) || 0;
 if (data.length > 0) {
   weather(data[0]);
 }
@@ -59,7 +59,6 @@ function createButton(city) {
     let button = document.createElement("div");
     button.classList.add("cities");
     button.classList.add("rounded-sm");
-    console.log(button);
     button.innerText = town;
     button.addEventListener("click", function () {
       let city = button.innerHTML;
