@@ -80,14 +80,6 @@ function weather(city) {
     })
   })
 }
-//const inputEl = inputs[i].value;
-//const prevData = localStorage.getItem("button" + i) || "[]";
-//const data = JSON.parse(prevData);
-//data.push(city);
-//localStorage.setItem("button" + i, JSON.stringify(data));
-
-//inputs[i].innerText = "";
-//inputs[i].innerText = JSON.parse(localStorage.getItem("button" + i) || "[]");
 function createButton(city) {
   const button = document.createElement("div");
   button.classList.add("cities");
@@ -99,17 +91,32 @@ function createButton(city) {
     document.getElementById("search").value = "";
   })
   document.getElementById("cities").append(button);
-}
-/*storedCities(button){
-  document.querySelectorAll(".cities").setAttribute("class","d-none");
-  const prevData = localStorage.getItem("buttons") || "[]";
-  const data = JSON.parse(prevData);
-  
-  if(data.length>4){
-    data.shift();
-  }
-  data.push("buttons");*/
 
-    
+  let prevData = localStorage.getItem("key")||"[]";
+ let data = JSON.parse(prevData);
+ data.push(city);
+// if(city.length>0){
+//  const buttons = document.querySelectorAll(".cities");
+//  console.log(buttons);
+// buttons.classList.add("d-none");
+//}
+// data.forEach(town => {
+  
+
+//   let button = document.createElement("div");
+//   button.classList.add("cities");
+//   button.classList.add("rounded-sm");
+//   button.innerText = town;
+//   button.addEventListener("click", function () {
+//     let city = button.innerHTML;
+//     weather(city);
+//     document.getElementById("search").value = "";
+//   })
+//   document.getElementById("cities").append(button)
+// });
+
+  localStorage.setItem("key",JSON.stringify(data));
+ }
+
 
 
