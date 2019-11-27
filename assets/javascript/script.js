@@ -92,31 +92,31 @@ function createButton(city) {
   })
   document.getElementById("cities").append(button);
 
-  let prevData = localStorage.getItem("key")||"[]";
- let data = JSON.parse(prevData);
- data.push(city);
-// if(city.length>0){
-//  const buttons = document.querySelectorAll(".cities");
-//  console.log(buttons);
-// buttons.classList.add("d-none");
-//}
-// data.forEach(town => {
-  
+  let prevData = localStorage.getItem("key") || "[]";
+  let data = JSON.parse(prevData);
+  data.push(city);
+  // if(city.length>0){
+  //  const buttons = document.querySelectorAll(".cities");
+  //  console.log(buttons);
+  // buttons.classList.add("d-none");
+  //}
+  // data.forEach(town => {
 
-//   let button = document.createElement("div");
-//   button.classList.add("cities");
-//   button.classList.add("rounded-sm");
-//   button.innerText = town;
-//   button.addEventListener("click", function () {
-//     let city = button.innerHTML;
-//     weather(city);
-//     document.getElementById("search").value = "";
-//   })
-//   document.getElementById("cities").append(button)
-// });
 
-  localStorage.setItem("key",JSON.stringify(data));
- }
+  //   let button = document.createElement("div");
+  //   button.classList.add("cities");
+  //   button.classList.add("rounded-sm");
+  //   button.innerText = town;
+  //   button.addEventListener("click", function () {
+  //     let city = button.innerHTML;
+  //     weather(city);
+  //     document.getElementById("search").value = "";
+  //   })
+  //   document.getElementById("cities").append(button)
+  // });
+
+  localStorage.setItem("key", JSON.stringify(data));
+}
 
 
 
